@@ -13,7 +13,7 @@ UBUNTU_VERSIONS="24.04 26.04"   # alle unterstützten Versionen (für --all)
 
 # Image-Name und GHCR-Pfad
 IMAGE_NAME="lmndev-runner"
-GHCR_IMAGE="ghcr.io/linuxmuster/lmndev-runner"
+GHCR_IMAGE="ghcr.io/edulution-io/lmndev-runner"
 
 # Standard-Shell im Container (bash | zsh | ash | fish)
 DEFAULT_SHELL="bash"
@@ -27,8 +27,8 @@ MY_UID="1000"
 MY_GID="1000"
 
 # GitHub-Organisation und Common-Repository
-GITHUB_ORG="linuxmuster"
+GITHUB_ORG="edulution-io"
 COMMON_REPO="linuxmuster-common"
 
 # Unterstützte Projekte (leerzeichen-getrennt)
-PROJECTS="linuxmuster-api linuxmuster-base7 linuxmuster-cli7 linuxmuster-common linuxmuster-fileserver linuxmuster-linbo7 linuxmuster-linbo-gui linuxmuster-linuxclient7 linuxmuster-prepare linuxmuster-tools linuxmuster-webui7 sophomorix4"
+PROJECTS="linuxmuster-api linuxmuster-base7 linuxmuster-cli7 linuxmuster-common linuxmuster-fileserver linuxmuster-linbo7 linuxmuster-prepare linuxmuster-tools sophomorix4"
