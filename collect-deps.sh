@@ -29,7 +29,7 @@ for project in $PROJECTS; do
 
     printf "  %-40s" "$project ..."
     fetched=false
-    for branch in main master; do
+    for branch in HEAD; do
         ctrl_url="${CONTROL_BASE_URL}/${project}/${branch}/debian/control"
         if curl -sf --max-time 10 "$ctrl_url" -o "$ctrl_file"; then
             echo "OK (${branch})"

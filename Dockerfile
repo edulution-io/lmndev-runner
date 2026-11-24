@@ -77,6 +77,20 @@ RUN apt-get install -sy $(cat /tmp/deps.txt) 2>&1 \
         }; \
     fi
 
+# edulution-archive-keyring: dependency of the forked linuxmuster-common. The
+# repository is only configured for this step, so that builds do not pick up
+# packages from it.
+RUN . /etc/os-release && \
+    curl -fsSL https://package.edulution.io/pub.gpg -o /tmp/edulution.asc && \
+    gpg --dearmor -o /tmp/edulution.gpg /tmp/edulution.asc && \
+    chmod 644 /tmp/edulution.gpg && \
+    echo "deb [signed-by=/tmp/edulution.gpg] https://package.edulution.io/ ${VERSION_CODENAME} main" \
+        > /etc/apt/sources.list.d/edulution.list && \
+    apt-get update -q && \
+    DEBIAN_FRONTEND=noninteractive apt-get -y install edulution-archive-keyring && \
+    rm -f /etc/apt/sources.list.d/edulution.list /tmp/edulution.asc /tmp/edulution.gpg && \
+    apt-get update -q
+
 # linuxmuster-common aus dem neuesten GitHub Release
 RUN DEBIAN_FRONTEND=noninteractive gdebi -n /tmp/linuxmuster-common.deb
 

@@ -25,7 +25,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: linuxmuster/lmndev-runner
+  IMAGE_NAME: edulution-io/lmndev-runner
 
 jobs:
   build-and-push:
